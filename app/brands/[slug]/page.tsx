@@ -38,7 +38,7 @@ export default function BrandDetail({ params }: { params: { slug: string } }) {
                 setData(data)
             })
 
-    }, [])
+    }, [router, slug])
 
 
     return (

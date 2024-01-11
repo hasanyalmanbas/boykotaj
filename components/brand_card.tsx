@@ -8,6 +8,10 @@ type BrandCardProps = {
     brand: Brand
 }
 
+const RichTextField = (data: string) => {
+    return <div dangerouslySetInnerHTML={{ __html: data }} />
+}
+
 export default function BrandCard({ brand }: BrandCardProps) {
     return (
         <section className="pb-12">
@@ -24,10 +28,13 @@ export default function BrandCard({ brand }: BrandCardProps) {
                         <p className="mt-4 sm:px-32 sm:text-xl text-medium font-semibold tracking-tighter">
                             {brand.name}
                         </p>
-                        <p className="sm:mt-8 mt-2.5 sm:px-4 px-8 md:px-16 lg:px-36  sm:leading-loose text-sm font-normal tracking-tighter">
-                            <p><span className="font-semibold">Henkel AG &amp; Company</span>, KGaA, b&uuml;nyesinde deterjan, boya, parf&uuml;m
-                                vb. &uuml;r&uuml;nler &uuml;reten bir&ccedil;ok markay&#305; bulundururan, merkezi Almanya'n&#305;n D&uuml;sseldorf kentinde bulunan &ccedil;ok uluslu &#351;irket.</p>
-                        </p>
+                        {
+                            brand.description != null && (
+                                <p className="sm:mt-8 mt-2.5 sm:px-8 md:px-16 lg:px-32  sm:leading-loose text-sm font-normal tracking-tighter">
+                                    {RichTextField(brand.description)}
+                                </p>
+                            )
+                        }
                     </div>
                 </div>
             </div>

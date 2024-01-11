@@ -12,6 +12,7 @@ export interface Brand {
   _id: string;
   products: boolean[];
   slug: string;
+  description: string;
   risk: string;
   _model: string;
 }
