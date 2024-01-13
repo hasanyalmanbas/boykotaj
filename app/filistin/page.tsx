@@ -88,7 +88,10 @@ export default function FilistinPage() {
                   </span>
                 </h2>
                 <p className="text-lg leading-8">
-                  {'Gazze acil yardım bekliyor'}
+                  {'Bombaların ortasında bir şehir: '}
+                  <span className="bg-clip-text text-transparent dark:bg-palestine bg-palestine-dark drop-shadow-md">
+                    {`Filistin`}
+                  </span>
                 </p>
               </div>
               <dl className="mt-16 grid grid-cols-1 gap-2 overflow-hidden rounded-2xl text-center sm:grid-cols-2 lg:grid-cols-4">
