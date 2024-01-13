@@ -10,7 +10,7 @@ export default function MapStatus() {
                         Hikaye
                     </h2>
                     <p className="text-lg leading-8">
-                        Gazze acil yardım bekliyor
+                        {'Gazze acil yardım bekliyor'}
                     </p>
                 </div>
                 <dl className="mt-16 grid grid-cols-1 gap-2 overflow-hidden rounded-2xl text-center sm:grid-cols-2 lg:grid-cols-4">
@@ -72,7 +72,7 @@ export default function MapStatus() {
                         <dd className="order-first text-2xl font-bold tracking-tight ">
                             GÜNCEL
                         </dd>
-                        
+
                         <Divider className='my-5' />
 
                         <Image
@@ -85,10 +85,14 @@ export default function MapStatus() {
                 </dl>
                 <div className="text-center space-y-4 mt-8">
                     <p className="text-medium leading-8">
-                        İsrail'in 30 Mart 1976'da Filistinlilere ait binlerce dönüm araziye el koyması her yıl Toprak Günü olarak anılıyor. Tarihi Filistin toprakları üzerinde kurulan İsrail işgaline direnişin sembolü haline gelen Toprak Günü'nün kırk birinci yıl dönümü, giderek genişleyen İsrail işgalini yeniden gündeme taşıdı.
+                        {
+                            `İsrail'in 30 Mart 1976'da Filistinlilere ait binlerce dönüm araziye el koyması her yıl Toprak Günü olarak anılıyor. Tarihi Filistin toprakları üzerinde kurulan İsrail işgaline direnişin sembolü haline gelen Toprak Günü'nün kırk birinci yıl dönümü, giderek genişleyen İsrail işgalini yeniden gündeme taşıdı.`
+                        }
                     </p>
                     <p className="text-medium leading-8">
-                        Filistin İstatistik Merkezinin Mart 2015 verilerine göre İsrail, 27 bin kilometrekarelik Filistin topraklarının yüzde 85'ine el koymuş durumda. Filistinliler ise bu alanın sadece yüzde 15'ini kullanabiliyor.
+                        {
+                            `Filistin İstatistik Merkezinin Mart 2015 verilerine göre İsrail, 27 bin kilometrekarelik Filistin topraklarının yüzde 85'ine el koymuş durumda. Filistinliler ise bu alanın sadece yüzde 15'ini kullanabiliyor.`
+                        }
                     </p>
                 </div>
             </div>

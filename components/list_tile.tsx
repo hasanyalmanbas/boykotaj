@@ -14,7 +14,9 @@ import {
     DropdownItem,
     Chip,
     Image,
-    Link as NextUILink
+    Link as NextUILink,
+    Selection,
+    SortDescriptor
 } from "@nextui-org/react";
 
 import { FaChevronDown } from "react-icons/fa";
@@ -26,7 +28,7 @@ import Lightbox from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
 import Link from "next/link";
 
-const statusColorMap = {
+const statusColorMap: any = {
     Temiz: "success",
     Boykot: "danger",
 };
@@ -37,8 +39,8 @@ type ProductProps = {
 
 export default function ListTile({ products }: ProductProps) {
     const [filterValue, setFilterValue] = React.useState("");
-    const [statusFilter, setStatusFilter] = React.useState("all");
-    const [sortDescriptor, setSortDescriptor] = React.useState({
+    const [statusFilter, setStatusFilter] = React.useState<Selection>("all");
+    const [sortDescriptor, setSortDescriptor] = React.useState<SortDescriptor>({
         column: "brand",
         direction: "ascending",
     });
@@ -74,7 +76,7 @@ export default function ListTile({ products }: ProductProps) {
     }, [filteredItems]);
 
     const sortedItems = React.useMemo(() => {
-        return [...items].sort((a, b) => {
+        return [...items].sort((a: Product, b: Product): number => {
             /*   const first = a[sortDescriptor.column];
               const second = b[sortDescriptor.column];
               const cmp = first < second ? -1 : first > second ? 1 : 0; */
@@ -95,7 +97,7 @@ export default function ListTile({ products }: ProductProps) {
                 return sortDescriptor.direction === "descending" ? -cmp : cmp;
             }
 
-
+            return 0;
         });
     }, [sortDescriptor, items]);
 
@@ -140,7 +142,7 @@ export default function ListTile({ products }: ProductProps) {
         }
     }, []);
 
-    const onSearchChange = React.useCallback((value) => {
+    const onSearchChange = React.useCallback((value: string) => {
         if (value) {
             setFilterValue(value);
         } else {

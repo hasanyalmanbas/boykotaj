@@ -1,4 +1,4 @@
-import { Button } from '@nextui-org/react'
+import { Button, Image } from '@nextui-org/react'
 import React, { PropsWithChildren } from 'react'
 
 type BrandTimelineProps = {
@@ -67,7 +67,7 @@ export default function BrandTimelineCard(props: BrandTimelineProps) {
                         type="button"
                         className="mt-1 -ms-1 p-1 inline-flex items-center gap-x-2 text-xs rounded-lg border border-transparent text-gray-500 hover:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
                     >
-                        <img
+                        <Image
                             className="flex-shrink-0 w-4 h-4 rounded-full"
                             src="https://images.unsplash.com/photo-1659482633369-9fe69af50bfb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8auto=format&fit=facearea&facepad=3&w=320&h=320&q=80"
                             alt="Image Description"

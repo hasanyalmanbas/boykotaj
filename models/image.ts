@@ -1,5 +1,3 @@
-import { Formats } from "./formats";
-
 export interface Image {
   path: string;
   title: string;
