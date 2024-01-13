@@ -18,10 +18,14 @@ export default function StatusTimelineCardRight({ data }: StatusTimelineProps) {
                 <div className="w-6 h-6 absolute top-1/2 -mt-3 rounded-full bg-blue-500 shadow" />
             </div>
             <div className="border-2 dark:border-white/10 border-black/10 px-4 py-4 rounded-2xl col-start-6 col-end-10 p-4  my-4 mr-auto ">
-                <h3 className="font-semibold text-lg mb-1">{data.name}</h3>
+                <h3 className="font-semibold text-lg mb-1">{data.title}</h3>
                 <p className="leading-tight text-justify">
                     {data.description}
                 </p>
+                <div className='flex flex-row justify-between mt-4'>
+                    <Link href={data.source} target='_blank'>Kaynak</Link>
+                    <h3 className="font-medium text-medium mb-1">{data.date}</h3>
+                </div>
             </div>
         </div>
     )

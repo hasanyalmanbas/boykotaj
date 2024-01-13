@@ -171,7 +171,7 @@ export default function ListTile({ products }: ProductProps) {
                     >
                         <DropdownTrigger className="flex">
                             <Button endContent={<FaChevronDown className="text-small" />} variant="flat">
-                                Derece
+                                Durum
                             </Button>
                         </DropdownTrigger>
                         <DropdownMenu

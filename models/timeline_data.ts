@@ -1,4 +1,6 @@
 export interface TimelineData {
-  name: string;
+  date: string;
+  title: string;
   description: string;
+  source: string;
 }

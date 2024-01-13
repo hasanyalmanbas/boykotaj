@@ -14,7 +14,7 @@ export default function NavSocial() {
                 color='default'
                 isIconOnly aria-label="Twitter"
                 as={Link}
-                href='https://twitter.com/GiriftStudio'
+                href='https://twitter.com/BoykotajApp'
                 target='_blank'
             >
                 <FaXTwitter size={15} />

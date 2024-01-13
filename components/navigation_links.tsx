@@ -1,7 +1,7 @@
 "use client"
 
 import React from 'react'
-import { Link, NavbarItem, NavbarMenu, NavbarMenuItem } from '@nextui-org/react'
+import { Image, Link, NavbarItem, NavbarMenu, NavbarMenuItem } from '@nextui-org/react'
 
 export default function NavLinks() {
     const menuList = [
@@ -10,12 +10,14 @@ export default function NavLinks() {
             link: "/",
         },
         {
-            name: "Markalar",
-            link: "/brands",
+            name: "Doğu Türkistan",
+            link: "/dogu-turkistan",
+            icon: "/img/bayrak-dogu-turkistan.svg"
         },
         {
-            name: "Durum",
-            link: "/status",
+            name: "Filistin",
+            link: "/filistin",
+            icon: "/img/bayrak-filistin.svg"
         },
     ];
 
@@ -28,8 +30,23 @@ export default function NavLinks() {
                 menuList.map((item, index) => {
                     return (
                         <NavbarItem key={`${item.name}-${index}`} isActive={currentSection === item.name} >
-                            <Link href={`${item.link}`} color={`${currentSection === item.name ? "warning" : "foreground"}`} className='font-bold'>
-                                {item.name.toUpperCase()}
+                            <Link href={`${item.link}`} color={`${currentSection === item.name ? "warning" : "foreground"}`} className='font-bold gap-x-2'>
+
+                                {
+                                    item.icon != null && (
+                                        <Image
+                                            width={24}
+                                            height={24}
+                                            src={item.icon}
+                                            alt={item.name}
+                                        />
+                                    )
+                                }
+                                <div
+                                    className=''
+                                >
+                                    {item.name.toUpperCase()}
+                                </div>
                             </Link>
                         </NavbarItem>
                     )
@@ -46,6 +63,19 @@ export default function NavLinks() {
                             size="lg"
                         >
                             {item.name}
+
+                            {
+                                item.icon != null && (
+                                    <Image
+                                        className='ml-4'
+                                        width={24}
+                                        height={24}
+                                        src={item.icon}
+                                        alt={item.name}
+                                    />
+                                )
+                            }
+
                         </Link>
                     </NavbarMenuItem>
                 ))}
