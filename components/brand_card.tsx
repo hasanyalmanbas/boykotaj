@@ -22,7 +22,7 @@ export default function BrandCard({ brand }: BrandCardProps) {
                             <Image
                                 className="w-48 sm:w-72 bg-cover"
                                 alt=''
-                                src={`https://api.boykotaj.com.tr/storage/uploads${brand.image.path}`}
+                                src={`https://api.boykotaj.com/storage/uploads${brand.image.path}`}
                             />
                         </div>
                         <p className="mt-4 sm:px-32 sm:text-xl text-medium font-semibold tracking-tighter">

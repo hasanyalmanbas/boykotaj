@@ -110,10 +110,10 @@ export default function ListTile({ products }: ProductProps) {
                         height={40}
                         onClick={() => {
                             setIsLightbox(true);
-                            setlightboxImagePath(`https://api.boykotaj.com.tr/storage/uploads${product.image.path}`)
+                            setlightboxImagePath(`https://api.boykotaj.com/storage/uploads${product.image.path}`)
                         }}
                         alt="NextUI hero Image with delay"
-                        src={`https://api.boykotaj.com.tr/storage/uploads${product.image.path}`}
+                        src={`https://api.boykotaj.com/storage/uploads${product.image.path}`}
                     />
                 );
             case "brand":

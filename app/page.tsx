@@ -10,10 +10,10 @@ export default function Home() {
   const [isLoading, setLoading] = useState(true)
 
   useEffect(() => {
-    fetch('https://api.boykotaj.com.tr/api/content/items/product?populate=1', {
+    fetch('https://api.boykotaj.com/api/content/items/product?populate=1', {
       method: "GET",
       headers: {
-        "api-key": "API-b7f4a3972c33db263e9ac5cbb2c9355937af3441"
+        "api-key": "API-f0c1821a1d447b015d1a0b1fe52f04f8ab2d600f"
       }
     })
       .then((res) => res.json())
