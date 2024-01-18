@@ -16,7 +16,8 @@ import {
     Image,
     Link as NextUILink,
     Selection,
-    SortDescriptor
+    SortDescriptor,
+    Avatar
 } from "@nextui-org/react";
 
 import { FaChevronDown } from "react-icons/fa";
@@ -105,16 +106,29 @@ export default function ListTile({ products }: ProductProps) {
         switch (columnKey) {
             case "name":
                 return (
-                    <Image
-                        width={40}
-                        height={40}
-                        onClick={() => {
-                            setIsLightbox(true);
-                            setlightboxImagePath(`https://api.boykotaj.com/storage/uploads${product.image.path}`)
-                        }}
-                        alt="NextUI hero Image with delay"
-                        src={`https://api.boykotaj.com/storage/uploads${product.image.path}`}
-                    />
+                    <>
+                        {
+                            product.image == null ?
+                                (
+                                    <Avatar showFallback src='https://images.unsplash.com/broken' />
+                                )
+                                :
+                                (
+                                    <Image
+                                        width={40}
+                                        height={40}
+                                        onClick={() => {
+                                            setIsLightbox(true);
+                                            setlightboxImagePath(`https://api.boykotaj.com/storage/uploads${product.image.path}`)
+                                        }}
+                                        alt="NextUI hero Image with delay"
+                                        src={`https://api.boykotaj.com/storage/uploads${product.image.path}`}
+                                    />
+                                )
+
+                        }
+                    </>
+
                 );
             case "brand":
                 return (
@@ -133,8 +147,8 @@ export default function ListTile({ products }: ProductProps) {
                 );
             case "risk":
                 return (
-                    <Chip className="capitalize" color={statusColorMap[product.brand.risk]} size="sm" variant="flat">
-                        {product.brand.risk}
+                    <Chip className="capitalize" color={"danger"} size="sm" variant="flat">
+                        {"Boykot"}
                     </Chip>
                 );
             default:
