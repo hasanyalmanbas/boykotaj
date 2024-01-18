@@ -4,6 +4,7 @@ import { FaXTwitter } from "react-icons/fa6";
 
 import Link from 'next/link';
 import ThemeSwitch from './theme_switch';
+import Feedback from './feedback';
 
 export default function NavSocial() {
     return (
@@ -19,6 +20,7 @@ export default function NavSocial() {
             >
                 <FaXTwitter size={15} />
             </Button>
+            <Feedback />
         </NavbarItem>
     )
 }

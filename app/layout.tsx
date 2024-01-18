@@ -30,7 +30,6 @@ export default function RootLayout({
         <Provider>
           <Navigation />
           {children}
-          <Feedback />
         </Provider>
       </body>
       <GoogleTagManager gtmId="G-Z1C0W85Z2W" />
