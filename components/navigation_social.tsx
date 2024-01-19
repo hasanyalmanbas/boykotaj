@@ -8,7 +8,7 @@ import Feedback from './feedback';
 
 export default function NavSocial() {
     return (
-        <NavbarItem className="flex gap-4 items-center">
+        <NavbarItem className="flex gap-4 items-center ">
             <ThemeSwitch />
             <Button
                 variant='bordered'
@@ -17,10 +17,10 @@ export default function NavSocial() {
                 as={Link}
                 href='https://twitter.com/BoykotajApp'
                 target='_blank'
+                className='hidden sm:flex'
             >
                 <FaXTwitter size={15} />
             </Button>
-            <Feedback />
         </NavbarItem>
     )
 }

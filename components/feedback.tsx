@@ -84,24 +84,28 @@ export default function Feedback() {
                 key="blur"
                 isIconOnly
                 color="primary"
-                onPress={() => handleOpen("blur")}
+                onClick={() => handleOpen("blur")}
                 endContent={<FaComment size={18} />}
             >
             </Button>
-            <Modal backdrop={backdrop} isOpen={isOpen} onClose={onClose}>
-                <ModalContent>
-                    {(onClose) => (
-                        <>
-                            <ModalBody>
-                                {/* Author: FormBold Team */}
-                                {/* Learn More: https://formbold.com */}
-                                <div className="">
+            <div className=''>
+                <Modal
+                    backdrop={backdrop}
+                    isOpen={isOpen}
+                    placement='center'
+                    onClose={onClose}
+                >
+                    <ModalContent>
+                        {(onClose) => (
+                            <>
+                                <ModalBody>
+                                    {/* Author: FormBold Team */}
+                                    {/* Learn More: https://formbold.com */}
                                     <form
-                                        className="py-6 px-9"
                                         action="/"
                                         onSubmit={submitForm}
                                     >
-                                        <div className="mb-5 flex flex-col gap-y-4">
+                                        <div className="flex flex-col justify-center items-center gap-y-4">
                                             <p
                                                 className="mb-3 block text-base font-medium"
                                             >
@@ -180,19 +184,20 @@ export default function Feedback() {
                                             />
 
                                             <ReCAPTCHA
-                                                size="normal"
                                                 sitekey="6LeAeVUpAAAAAF_XZiJxUs-9dIOIv79RFgx1iVmj"
                                                 onChange={onCaptchaChange}
                                                 ref={recaptcha}
+                                                className="max-w-xs"
                                             />
 
-                                        </div>
-                                        <div>
-
-                                        </div>
-                                        <div>
                                             <Button
                                                 isLoading={sending}
+                                                isDisabled={captchaToken == ""}
+                                                color="secondary"
+                                                variant='solid'
+                                                radius='none'
+                                                className='bg-[#6A64F1] w-full rounded-md font-semibold max-w-xs'
+                                                type='submit'
                                                 spinner={
                                                     <svg
                                                         className="animate-spin h-5 w-5 text-current"
@@ -215,25 +220,22 @@ export default function Feedback() {
                                                         />
                                                     </svg>
                                                 }
-                                                isDisabled={captchaToken == ""}
-                                                color="secondary"
-                                                variant='solid'
-                                                size='lg'
-                                                radius='none'
-                                                className='bg-[#6A64F1] w-full rounded-md font-semibold'
-                                                type='submit'
                                             >
                                                 Gönder
                                             </Button>
                                         </div>
-                                    </form>
-                                </div>
+                                        <div className=''>
 
-                            </ModalBody>
-                        </>
-                    )}
-                </ModalContent>
-            </Modal>
+                                        </div>
+                                    </form>
+
+                                </ModalBody>
+                            </>
+                        )}
+                    </ModalContent>
+                </Modal>
+            </div>
+
         </>
     )
 }

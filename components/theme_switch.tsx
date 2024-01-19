@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from "react";
 import { useTheme } from "next-themes";
 import { Button } from "@nextui-org/react";
-import { FaSun, FaMoon } from "react-icons/fa6";
+import { FaSun, FaMoon, FaLightbulb } from "react-icons/fa6";
 
 export default function ThemeSwitch() {
     const [mounted, setMounted] = useState(false)
@@ -16,12 +16,17 @@ export default function ThemeSwitch() {
         <>
             {
                 mounted === true && (
-                    <Button variant='bordered' color={"default"} isIconOnly onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}>
+                    <Button
+                        isIconOnly
+                        variant='bordered'
+                        color={"default"}
+                        onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
+                    >
                         {
                             theme === 'light' ?
                                 <FaMoon size={15} />
                                 :
-                                <FaSun size={15} />
+                                <FaLightbulb size={15} />
                         }
                     </Button>
                 )
