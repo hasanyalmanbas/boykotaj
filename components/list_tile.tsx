@@ -174,14 +174,14 @@ export default function ListTile({ products }: ProductProps) {
                 <div className="flex justify-between items-center gap-3">
                     <Input
                         isClearable
-                        className="sm:max-w-[25%] md:max-w-[30%]"
+                        className="sm:max-w-[50%] md:max-w-[25%]"
                         placeholder="Ürün ara"
                         startContent={<SearchIcon />}
                         value={filterValue}
                         onClear={() => onClear()}
                         onValueChange={onSearchChange}
                     />
-                    <Dropdown
+                    {/* <Dropdown
                     >
                         <DropdownTrigger className="flex">
                             <Button endContent={<FaChevronDown className="text-small" />} variant="flat">
@@ -201,7 +201,7 @@ export default function ListTile({ products }: ProductProps) {
                                 </DropdownItem>
                             ))}
                         </DropdownMenu>
-                    </Dropdown>
+                    </Dropdown> */}
                 </div>
             </div>
         );
