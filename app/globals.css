@@ -1,3 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.snap {
+    scroll-snap-type: y mandatory
+}

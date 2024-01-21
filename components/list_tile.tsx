@@ -1,4 +1,4 @@
-import React, { Key } from "react";
+import React, { ChangeEventHandler, Key } from "react";
 import {
     Table,
     TableHeader,
@@ -17,7 +17,10 @@ import {
     Link as NextUILink,
     Selection,
     SortDescriptor,
-    Avatar
+    Avatar,
+    Pagination,
+    Select,
+    SelectItem
 } from "@nextui-org/react";
 
 import { FaChevronDown } from "react-icons/fa";
@@ -49,6 +52,9 @@ export default function ListTile({ products }: ProductProps) {
     const [isLightbox, setIsLightbox] = React.useState<boolean>(false);
     const [lightboxImagePath, setlightboxImagePath] = React.useState<string>("");
 
+    const [page, setPage] = React.useState(1);
+    const [rowsPerPage, setRowsPerPage] = React.useState(25);
+
     const hasSearchFilter = Boolean(filterValue);
 
     const headerColumns = React.useMemo(() => {
@@ -72,9 +78,14 @@ export default function ListTile({ products }: ProductProps) {
         return filteredProducts;
     }, [products, hasSearchFilter, statusFilter, filterValue]);
 
+    const pages = Math.ceil(filteredItems.length / rowsPerPage);
+
     const items = React.useMemo(() => {
-        return filteredItems;
-    }, [filteredItems]);
+        const start = (page - 1) * rowsPerPage;
+        const end = start + rowsPerPage;
+
+        return filteredItems.slice(start, end);
+    }, [page, filteredItems, rowsPerPage]);
 
     const sortedItems = React.useMemo(() => {
         return [...items].sort((a: Product, b: Product): number => {
@@ -101,6 +112,23 @@ export default function ListTile({ products }: ProductProps) {
             return 0;
         });
     }, [sortDescriptor, items]);
+
+    const onNextPage = React.useCallback(() => {
+        if (page < pages) {
+            setPage(page + 1);
+        }
+    }, [page, pages]);
+
+    const onPreviousPage = React.useCallback(() => {
+        if (page > 1) {
+            setPage(page - 1);
+        }
+    }, [page]);
+
+    const onRowsPerPageChange = React.useCallback((e: React.ChangeEvent<HTMLSelectElement>) => {
+        setRowsPerPage(Number(e.target.value));
+        setPage(1);
+    }, []);
 
     const renderCell = React.useCallback((product: Product, columnKey: Key) => {
         switch (columnKey) {
@@ -203,9 +231,59 @@ export default function ListTile({ products }: ProductProps) {
                         </DropdownMenu>
                     </Dropdown> */}
                 </div>
+               {/*  <div className="flex justify-between items-center">
+                    <span className="text-default-400 text-small">Toplam {filteredItems.length} ürün</span>
+                    <Select
+                        items={[
+                            {
+                                "key": "20",
+                                "value": "20"
+                            },
+                            {
+                                "key": "50",
+                                "value": "50"
+                            },
+                            {
+                                "key": "100",
+                                "value": "100"
+                            },
+                        ]}
+                        label={`Ürün Sayısı`}
+                        defaultSelectedKeys={["20"]}
+                        labelPlacement="inside"
+                        className="max-w-xs"
+                        onChange={onRowsPerPageChange}
+                    >
+                        {(item) => <SelectItem key={item.key}>{item.value}</SelectItem>}
+                    </Select>
+                </div> */}
             </div>
         );
-    }, [filterValue, onSearchChange, statusFilter, onClear]);
+    }, [filterValue, onSearchChange, onClear]);
+
+    const bottomContent = React.useMemo(() => {
+        return (
+            <div className="py-2 px-2 flex justify-between items-center">
+                <Pagination
+                    isCompact
+                    showControls
+                    showShadow
+                    color="primary"
+                    page={page}
+                    total={pages}
+                    onChange={setPage}
+                />
+                <div className="hidden sm:flex w-[30%] justify-end gap-2">
+                    <Button isDisabled={pages === 1} size="sm" variant="flat" onPress={onPreviousPage}>
+                        Previous
+                    </Button>
+                    <Button isDisabled={pages === 1} size="sm" variant="flat" onPress={onNextPage}>
+                        Next
+                    </Button>
+                </div>
+            </div>
+        );
+    }, [page, pages, onPreviousPage, onNextPage]);
 
     return (
         <div className="container mx-auto flex flex-col gap-4">
@@ -215,6 +293,8 @@ export default function ListTile({ products }: ProductProps) {
                 sortDescriptor={sortDescriptor}
                 topContent={topContent}
                 topContentPlacement="outside"
+                bottomContent={bottomContent}
+                bottomContentPlacement="outside"
                 onSortChange={setSortDescriptor}
             >
                 <TableHeader columns={headerColumns}>

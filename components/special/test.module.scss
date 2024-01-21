@@ -1,0 +1,49 @@
+$black: #222222;
+$grey: #767676;
+$ease-out-sine: cubic-bezier(0.39, 0.575, 0.565, 1);
+
+.app {
+  gap: 2vw;
+  display: flex;
+  flex-direction: column;
+}
+
+.section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2vw;
+}
+
+.box {
+  width: 30%;
+  border-radius: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  color: white;
+
+  &--1 {
+    background: #111;
+  }
+  &--2 {
+    background: red;
+    width: 35rem;
+    height: 35rem;
+  }
+  &--3 {
+    background: beige;
+  }
+  &--4 {
+    background: #111;
+  }
+  &--5 {
+    background: red;
+    width: 35rem;
+    height: 35rem;
+  }
+  &--6 {
+    background: beige;
+  }
+}

@@ -19,8 +19,17 @@ export async function POST(request: Request) {
   );
 
   if (captchaResponse.ok) {
-    await sendMail(data.title, data.name, data.email, data.message);
-    return Response.json({ status: "OK" });
+    var response = await sendMail(
+      data.title,
+      data.name,
+      data.email,
+      data.message
+    );
+    if (response) {
+      return Response.json({ status: "OK" });
+    } else {
+      return Response.json({ status: "Error" });
+    }
   }
 
   return Response.json({ status: "Error" });

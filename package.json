@@ -9,10 +9,11 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@next/third-parties": "^14.0.4", 
+    "@next/third-parties": "^14.0.4",
     "@nextui-org/react": "^2.2.9",
     "@nextui-org/system": "^2.0.15",
     "@nextui-org/theme": "^2.1.17",
+    "@studio-freight/lenis": "^1.0.33",
     "@types/nodemailer": "^6.4.14",
     "@types/react-google-recaptcha": "^2.1.8",
     "dotenv": "^16.3.1",
@@ -26,6 +27,8 @@
     "react-dom": "^18",
     "react-google-recaptcha": "^3.1.0",
     "react-icons": "^4.12.0",
+    "react-photo-album": "^2.3.0",
+    "sass": "^1.70.0",
     "yet-another-react-lightbox": "^3.15.6"
   },
   "devDependencies": {
