@@ -1,3 +1,12 @@
+import { Slider } from "@nextui-org/react";
+import {
+  GenericSlide,
+  ImageFit,
+  ImageSource,
+  Slide,
+  SlideImage,
+} from "yet-another-react-lightbox";
+
 const unsplashPhotos = [
   {
     id: "https://vision-pd.org/wp-content/uploads/2020/05/Modern-Filistin-Tarihi.jpg",
@@ -67,13 +76,13 @@ const unsplashPhotos = [
     width: 1200,
     height: 1200,
   },
-   {
+  {
     id: "https://img.piri.net/mnresize/1200/-/resim/upload/2022/06/19/c1e029645.jpg",
     source:
       "https://www.gzt.com/infografik/jurnalist/gzt-surec-dogu-turkistanda-neler-oldu-10989",
     width: 1200,
     height: 1200,
-  }, 
+  },
   {
     id: "https://img.piri.net/mnresize/1200/-/resim/upload/2022/06/19/c71721826.jpg",
     source:
@@ -81,12 +90,12 @@ const unsplashPhotos = [
     width: 1200,
     height: 1200,
   },
-
 ];
 
 export const filistin_slides = unsplashPhotos.map((photo) => {
   const width = photo.width * 4;
   const height = photo.height * 4;
+
   return {
     src: photo.id,
     source: photo.source,
@@ -94,5 +103,36 @@ export const filistin_slides = unsplashPhotos.map((photo) => {
     height,
   };
 });
+
+export class DenemeSlide implements GenericSlide {
+  type?: "image";
+  src?: string;
+  alt?: string;
+  width?: number;
+  height?: number;
+  imageFit?: ImageFit;
+  srcSet?: ImageSource[];
+  source?: string;
+}
+
+export class CustomSlide implements GenericSlide {
+  constructor(source: string, src: string, width: number, height: number) {}
+
+  /** image slide type */
+  type?: "image";
+  /** image URL */
+  src?: string;
+  /** image 'alt' attribute */
+  alt?: string;
+  /** image width in pixels */
+  width?: number;
+  /** image height in pixels */
+  height?: number;
+  /** `object-fit` setting */
+  imageFit?: ImageFit;
+  /** alternative images to be passed to the 'srcSet' */
+  srcSet?: ImageSource[];
+  source?: string;
+}
 
 export default filistin_slides;
