@@ -4,15 +4,28 @@ import React from 'react'
 import Lightbox from 'yet-another-react-lightbox';
 import "yet-another-react-lightbox/styles.css";
 
-export default function LightboxImageContainer({ imagePath, url }: { imagePath: string, url: string }) {
+export default function LightboxImageContainer({ imagePath, url, width = 0 }: { imagePath: string, url: string, width?: number }) {
     const [open, setOpen] = React.useState(false);
     return (
         <>
-            <Image
-                src={imagePath}
-                onClick={() => setOpen(true)}
-                alt=''
-            />
+            {
+                width === 0 ?
+                    (
+                        <Image
+                            src={imagePath}
+                            onClick={() => setOpen(true)}
+                            alt=''
+                        />
+                    ) :
+                    (
+                        <Image
+                            src={imagePath}
+                            onClick={() => setOpen(true)}
+                            alt=''
+                        />
+                    )
+            }
+
 
             <Lightbox
                 open={open}

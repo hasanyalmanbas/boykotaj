@@ -3,6 +3,8 @@ import styles from './styles.module.scss';
 
 import { useScroll, useTransform, motion } from 'framer-motion';
 import React, { useRef } from 'react'
+import LightboxImageContainer from '@/components/lightbox_image_container';
+import Link from 'next/link';
 
 var listZoomItems = [
     "https://www.insamer.com/tr/uploads/gallery/infografik-bati-seria-nin-ilhak-karari_3001.jpg",
@@ -18,7 +20,7 @@ export default function ZoomContainer() {
     const container = useRef(null);
     const { scrollYProgress } = useScroll({
         target: container,
-        offset: ['start center', 'end end']
+        offset: ['start center', 'end center']
     })
 
     const scale4 = useTransform(scrollYProgress, [0, 1], [1, 3]);
@@ -65,11 +67,11 @@ export default function ZoomContainer() {
                     pictures.map(({ src, scale }, index) => {
                         return <motion.div key={index} style={{ scale }} className={styles.el}>
                             <div className={styles.imageContainer}>
+
                                 <Image
                                     src={src}
                                     alt="image"
-
-width={300}
+                                    width={300}
                                 />
                             </div>
                         </motion.div>
