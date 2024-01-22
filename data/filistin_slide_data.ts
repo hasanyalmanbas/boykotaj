@@ -9,86 +9,76 @@ import {
 
 const unsplashPhotos = [
   {
-    id: "https://vision-pd.org/wp-content/uploads/2020/05/Modern-Filistin-Tarihi.jpg",
-    source: "https://vision-pd.org",
-    width: 790,
-    height: 1204,
-  },
-  {
-    id: "https://www.insamer.com/tr/uploads/gallery/infografik-dogu-turkistan-daki-toplama-kamplari_2923.jpg",
-    source: "https://www.insamer.com",
-    width: 761,
-    height: 1204,
-  },
-  {
-    id: "/img/turkistan-1941-1996-demografik-asimilasyonu.jpg",
+    id: "https://www.mepanews.com/d/other/filistingazzegruplar.jpg",
     source:
-      "https://www.facebook.com/ihhinsaniyardim/photos/a.370299055228/10158181187325229/",
-    width: 1403,
-    height: 1204,
+      "https://www.mepanews.com/infografik-gazzede-faaliyet-gosteren-silahli-gruplar-31701h.htm",
+    width: 1045,
+    height: 860,
   },
   {
-    id: "https://www.mepanews.com/d/other/dogu-turkistan-info.jpg",
-    source:
-      "https://www.mepanews.com/ramazanda-her-gune-bir-musluman-cografyasi-dogu-turkistan-59182h.htm",
-    width: 1080,
-    height: 1080,
+    id: "https://pbs.twimg.com/media/Ce0L3IhW8AA5XY1.jpg",
+    source: "https://twitter.com/anadoluajansi/status/715240957797642241",
+    width: 724,
+    height: 859,
   },
   {
-    id: "/img/kirim-tatar-surgunu.jpg",
-    source:
-      "https://www.facebook.com/yurtdisiturkler/photos/a.561701467236799/2736778323062425/",
-    width: 903,
-    height: 1204,
+    id: "https://cdnuploads.aa.com.tr/uploads/userFiles/4164aa16-2a0e-4a00-98ad-deb5a750816b/2019%2FHAZIRANN%2FFILISTINN_.jpg",
+    source: "https://www.aa.com.tr/tr/info/infografik/14720",
+    width: 572,
+    height: 860,
   },
   {
-    id: "https://img.piri.net/mnresize/900/-/resim/upload/2023/04/20/64e6aa08gztdoc49futc3bcrkistanbayrampost.jpg",
+    id: "https://trthaberstatic.cdn.wp.trt.com.tr/resimler/2162000/2162722.jpg",
     source:
-      "https://www.gzt.com/infografik/jurnalist/dogu-turkistanda-bayram-nasil-geciyor-24159",
-    width: 900,
-    height: 900,
+      "https://www.trthaber.com/infografik/filistin-direnisinin-sembolleri-240.html",
+    width: 688,
+    height: 860,
   },
   {
-    id: "https://img.piri.net/mnresize/1200/-/resim/upload/2022/06/19/e2b2f1011.jpg",
+    id: "https://trthaberstatic.cdn.wp.trt.com.tr/resimler/2162000/2162723.jpg",
     source:
-      "https://www.gzt.com/infografik/jurnalist/gzt-surec-dogu-turkistanda-neler-oldu-10989",
-    width: 1200,
-    height: 1200,
+      "https://www.trthaber.com/infografik/filistin-direnisinin-sembolleri-240.html",
+    width: 688,
+    height: 860,
   },
   {
-    id: "https://img.piri.net/mnresize/1200/-/resim/upload/2022/06/19/cd8d3b132.jpg",
+    id: "https://trthaberstatic.cdn.wp.trt.com.tr/resimler/2162000/2162724.jpg",
     source:
-      "https://www.gzt.com/infografik/jurnalist/gzt-surec-dogu-turkistanda-neler-oldu-10989",
-    width: 1200,
-    height: 1200,
+      "https://www.trthaber.com/infografik/filistin-direnisinin-sembolleri-240.html",
+    width: 688,
+    height: 860,
   },
   {
-    id: "https://img.piri.net/mnresize/1200/-/resim/upload/2022/06/19/eef81e113.jpg",
-    source:
-      "https://www.gzt.com/infografik/jurnalist/gzt-surec-dogu-turkistanda-neler-oldu-10989",
-    width: 1200,
-    height: 1200,
+    id: "https://cdnuploads.aa.com.tr/uploads/InfoGraphic/2023/10/17/d7571f5aa67f30a1bb59e463444969e4.jpg",
+    source: "https://www.aa.com.tr/tr/info/infografik/36325",
+    width: 789,
+    height: 860,
   },
   {
-    id: "https://img.piri.net/mnresize/1200/-/resim/upload/2022/06/19/8282f0624.jpg",
+    id: "https://pbs.twimg.com/media/C69WG3tWkAAqSoB?format=jpg&name=medium",
     source:
-      "https://www.gzt.com/infografik/jurnalist/gzt-surec-dogu-turkistanda-neler-oldu-10989",
-    width: 1200,
-    height: 1200,
+      "https://twitter.com/anadoluajansi/status/841986334260658177/photo/1",
+    width: 1053,
+    height: 860,
   },
   {
-    id: "https://img.piri.net/mnresize/1200/-/resim/upload/2022/06/19/c1e029645.jpg",
-    source:
-      "https://www.gzt.com/infografik/jurnalist/gzt-surec-dogu-turkistanda-neler-oldu-10989",
-    width: 1200,
-    height: 1200,
+    id: "https://www.insamer.com/tr/uploads/gallery/infografik-filistin-in-5-meselesi_2046.jpg",
+    source: "https://insamer.com/tr/filistinin-5-meselesi_2046.html",
+    width: 543,
+    height: 860,
   },
   {
-    id: "https://img.piri.net/mnresize/1200/-/resim/upload/2022/06/19/c71721826.jpg",
+    id: "https://cdnuploads.aa.com.tr/uploads/InfoGraphic/2019/05/15/58e4bf3d8ab0263637d14c7a621421d6.jpg",
+    source: "https://www.aa.com.tr/tr/info/infografik/14350",
+    width: 507,
+    height: 860,
+  },
+  {
+    id: "https://cms.dijitalhafiza.com/wp-content/uploads/2022/03/Filistinde-ekonomik-gostergeler.jpg",
     source:
-      "https://www.gzt.com/infografik/jurnalist/gzt-surec-dogu-turkistanda-neler-oldu-10989",
-    width: 1200,
-    height: 1200,
+      "https://dijitalhafiza.com/infografikler/filistinde-ekonomik-gostergeler-alarm-veriyor-2",
+    width: 602,
+    height: 860,
   },
 ];
 
