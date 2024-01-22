@@ -3,6 +3,7 @@ import Lenis from "@studio-freight/lenis";
 import { motion, useScroll, useTransform } from 'framer-motion';
 import React, { useRef } from 'react'
 
+
 const data = [
     { img: "https://static.daktilo.com/sites/71/uploads/2022/09/13/dogu-turkistanda-zulum-suruyor.jpeg", alt: "image1" },
     { img: "https://tgsp.org.tr/tr/frontend/storage/blogs/dogu-turkistan-icin-eller-duaya-kalkti-ca0f60c.jpeg", alt: "image2" },

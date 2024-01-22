@@ -12,9 +12,17 @@ import ZoomContainer from '@/components/special/filistin/zoom_container';
 import ImageGalleryContainer from '@/components/image_gallery_container';
 import filistin_slides from '@/data/filistin_slide_data';
 import ContentContainerNoneBackground from '@/components/content_container_none_background';
-import TurkistanHeadlineContainer from '@/components/special/turkistan/turkistan_headline_container';
 import LightboxImageContainer from '@/components/lightbox_image_container';
 import StatProgress from '@/components/stat_progress';
+
+import dynamic from 'next/dynamic';
+
+const TurkistanHeadlineContainer = dynamic(
+  () => {
+    return import("@/components/special/turkistan/turkistan_headline_container");
+  },
+  { ssr: false }
+);
 
 const listTimeline: TimelineData[] = [
   {
