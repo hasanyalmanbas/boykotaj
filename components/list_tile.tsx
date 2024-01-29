@@ -1,4 +1,4 @@
-import React, { ChangeEventHandler, Key } from "react";
+import React, { Key } from "react";
 import {
     Table,
     TableHeader,
@@ -8,29 +8,20 @@ import {
     TableCell,
     Input,
     Button,
-    DropdownTrigger,
-    Dropdown,
-    DropdownMenu,
-    DropdownItem,
     Chip,
     Image,
     Link as NextUILink,
     Selection,
     SortDescriptor,
     Avatar,
-    Pagination,
-    Select,
-    SelectItem
-} from "@nextui-org/react";
+    Pagination} from "@nextui-org/react";
 
-import { FaChevronDown } from "react-icons/fa";
 import { SearchIcon } from "@/icons/search_icon";
-import { columns, statusOptions, capitalize } from "@/helper/utils";
+import { columns, statusOptions } from "@/helper/utils";
 import { Product } from "@/models/product";
 
 import Lightbox from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
-import Link from "next/link";
 
 const statusColorMap: any = {
     Temiz: "success",

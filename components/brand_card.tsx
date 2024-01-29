@@ -1,8 +1,7 @@
 import { Brand } from '@/models/brand'
-import { Button, Image } from '@nextui-org/react'
+import { Image } from '@nextui-org/react'
 import React from 'react'
 import { FaCheckCircle, FaExclamationTriangle } from 'react-icons/fa'
-import { FaExclamation } from 'react-icons/fa'
 
 type BrandCardProps = {
     brand: Brand

@@ -2,11 +2,9 @@
 
 import BrandTimelineCard from '@/components/brand_timeline_card'
 import { Brand } from '@/models/brand';
-import { Spinner, Image, Badge, Avatar, Divider } from '@nextui-org/react';
+import { Spinner, Divider } from '@nextui-org/react';
 import { useRouter } from 'next/navigation';
 import React, { useEffect, useState } from 'react'
-import { FaCalendar } from 'react-icons/fa6'
-import { useSearchParams } from 'next/navigation'
 import BrandCard from '@/components/brand_card';
 
 /* { params }: { params: { id: string, slug: string } } */

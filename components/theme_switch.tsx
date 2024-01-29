@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from "react";
 import { useTheme } from "next-themes";
 import { Button } from "@nextui-org/react";
-import { FaSun, FaMoon, FaLightbulb } from "react-icons/fa6";
+import { FaMoon, FaLightbulb } from "react-icons/fa6";
 
 export default function ThemeSwitch() {
     const [mounted, setMounted] = useState(false)

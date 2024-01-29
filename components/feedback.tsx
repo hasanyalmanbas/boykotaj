@@ -1,9 +1,8 @@
 'use client'
 
-import { Button, Input, Modal, ModalBody, ModalContent, ModalFooter, ModalHeader, Select, SelectItem, Textarea, useDisclosure } from '@nextui-org/react'
-import React, { FormEvent, RefObject, useRef, useState } from 'react'
-import { FaMailBulk } from 'react-icons/fa';
-import { FaAmilia, FaComment, FaEnvelope, FaHeading, FaMailchimp, FaPerson, FaUser } from 'react-icons/fa6'
+import { Button, Input, Modal, ModalBody, ModalContent, Select, SelectItem, Textarea, useDisclosure } from '@nextui-org/react'
+import React, { FormEvent, RefObject, useRef } from 'react'
+import { FaComment, FaEnvelope, FaHeading, FaUser } from 'react-icons/fa6'
 import ReCAPTCHA from 'react-google-recaptcha';
 
 

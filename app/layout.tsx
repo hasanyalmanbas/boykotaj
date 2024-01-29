@@ -3,9 +3,6 @@ import { Montserrat } from 'next/font/google'
 import './globals.css'
 import { Provider } from './provider'
 import Navigation from '@/components/navigation'
-import { Badge, Button } from '@nextui-org/react'
-import { FaComment } from 'react-icons/fa6'
-import Feedback from '@/components/feedback'
 import { GoogleTagManager } from '@next/third-parties/google'
 
 const montserrat = Montserrat({ subsets: ['latin'] })
