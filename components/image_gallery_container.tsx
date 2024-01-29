@@ -1,13 +1,12 @@
 'use client'
 
-import React, { useEffect } from 'react'
-import Lightbox, { SlideImage } from "yet-another-react-lightbox";
+import React from 'react'
+import Lightbox from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
 import PhotoAlbum from 'react-photo-album'
 import { Counter, Download, Share } from 'yet-another-react-lightbox/plugins';
-import { Image } from '@nextui-org/react';
-import { CustomSlide, DenemeSlide } from '@/data/filistin_slide_data';
-import Link from 'next/link';
+import { Image, Link } from '@nextui-org/react';
+import { DenemeSlide } from '@/data/filistin_slide_data';
 
 export default function ImageGalleryContainer({ slides }: { slides: any }) {
     const [index, setIndex] = React.useState(-1);
@@ -34,16 +33,19 @@ export default function ImageGalleryContainer({ slides }: { slides: any }) {
                             slide: ({ slide, offset, rect }) => {
                                 console.log(slide)
                                 return (
-                                    <Link
-                                        href={(slide as DenemeSlide).source!}
-                                        target='_blank'
-                                    >
+                                    <div className='w-full flex flex-col pl-12 pr-8 justify-center items-center gap-y-4'>
                                         <Image
-                                            className='sm:w-[90vw] sm:h-auto md:w-auto md:h-[90vh] bg-cover rounded-3xl cursor-pointer'
+                                            className='sm:w-[90vw] sm:h-auto md:w-auto md:h-[90vh] mx-auto bg-cover rounded-3xl cursor-pointer'
                                             src={(slide as DenemeSlide).src}
                                             alt=''
                                         />
-                                    </Link>
+                                        <Link
+                                            href={(slide as DenemeSlide).source!}
+                                            target='_blank'
+                                        >
+                                            Kaynağa Git
+                                        </Link>
+                                    </div>
                                 )
                             },
                         }}

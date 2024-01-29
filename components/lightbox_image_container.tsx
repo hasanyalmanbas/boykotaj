@@ -1,5 +1,4 @@
-import { Image } from '@nextui-org/react';
-import Link from 'next/link';
+import { Image, Link } from '@nextui-org/react';
 import React from 'react'
 import Lightbox from 'yet-another-react-lightbox';
 import "yet-another-react-lightbox/styles.css";
@@ -41,16 +40,19 @@ export default function LightboxImageContainer({ imagePath, url, width = 0 }: { 
                     },
                     slideContainer() {
                         return (
+                            <div className='w-full flex flex-col justify-center items-center gap-y-4'>
+                            <Image
+                                className='sm:w-[95vw] sm:h-auto md:w-auto md:h-[90vh] mx-auto bg-cover rounded-3xl cursor-pointer'
+                                src={imagePath}
+                                alt=''
+                            />
                             <Link
                                 href={url}
                                 target='_blank'
                             >
-                                <Image
-                                    className='sm:w-[90vw] sm:h-auto md:w-auto md:h-[90vh] bg-cover rounded-3xl cursor-pointer'
-                                    src={imagePath}
-                                    alt=''
-                                />
+                                Kaynağa Git
                             </Link>
+                        </div>
                         )
                     }
                 }}
