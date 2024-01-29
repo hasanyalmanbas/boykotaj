@@ -1,11 +1,16 @@
 import { Button, Image } from '@nextui-org/react'
+import Link from 'next/link'
 import React, { PropsWithChildren } from 'react'
 
 type BrandTimelineProps = {
-    time: string,
     title: string,
+    date: string,
     description: string,
-    price?: string | null | undefined
+    source: string
+}
+
+const RichTextField = (data: string) => {
+    return <div dangerouslySetInnerHTML={{ __html: data }} />
 }
 
 export default function BrandTimelineCard(props: BrandTimelineProps) {
@@ -14,7 +19,7 @@ export default function BrandTimelineCard(props: BrandTimelineProps) {
             {/* Left Content */}
             <div className="w-1/5">
                 <span className="text-xs text-gray-500 dark:text-gray-400">
-                    {props.time}
+                    {props.date}
                 </span>
             </div>
             {/* End Left Content */}
@@ -48,11 +53,12 @@ export default function BrandTimelineCard(props: BrandTimelineProps) {
                     </svg>
                     {props.title}
                 </h3>
-                <p className="mt-1 text-sm text-gray-600 dark:text-gray-400">
-                    {props.description}
+
+                <p className="mt-1 text-gray-600 dark:text-gray-400">
+                    {RichTextField(props.description)}
                 </p>
 
-                {
+                {/* {
                     props.price != null && (
                         <p className="mt-1 text-sm ">
                             <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#bb0a1e] via-[#8b0000] to-[#cc1100]">
@@ -60,30 +66,21 @@ export default function BrandTimelineCard(props: BrandTimelineProps) {
                             </span>
                         </p>
                     )
-                }
+                } */}
 
                 <div className='flex flex-row justify-between items-center mt-4'>
-                    {/* <button
-                        type="button"
-                        className="mt-1 -ms-1 p-1 inline-flex items-center gap-x-2 text-xs rounded-lg border border-transparent text-gray-500 hover:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
+                    <Link
+                        href={props.source}
+                        target='_blank'
                     >
-                        <Image
-                            className="flex-shrink-0 w-4 h-4 rounded-full"
-                            src="https://images.unsplash.com/photo-1659482633369-9fe69af50bfb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8auto=format&fit=facearea&facepad=3&w=320&h=320&q=80"
-                            alt="Image Description"
-                        />
-                        {
-                            "Admin"
-                        }
-                    </button> */}
-
-                    <Button
-                        color='default'
-                        size='sm'
-                        variant='bordered'
-                    >
-                        KAYNAK
-                    </Button>
+                        <Button
+                            color='default'
+                            size='sm'
+                            variant='ghost'
+                        >
+                            KAYNAK
+                        </Button>
+                    </Link>
                 </div>
             </div>
             {/* End Right Content */}

@@ -12,7 +12,6 @@ const RichTextField = (data: string) => {
 }
 
 export default function BrandCard({ brand }: BrandCardProps) {
-    console.log(brand)
     return (
         <section className="pb-12">
             <div className="items-center pt-12 px-8 mx-auto max-w-7xl lg:px-16 md:px-12">

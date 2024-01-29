@@ -6,6 +6,7 @@ import { Spinner, Divider } from '@nextui-org/react';
 import { useRouter } from 'next/navigation';
 import React, { useEffect, useState } from 'react'
 import BrandCard from '@/components/brand_card';
+import { Timeline } from '@/models/timeline';
 
 /* { params }: { params: { id: string, slug: string } } */
 
@@ -13,6 +14,7 @@ export default function BrandDetail({ params }: { params: { slug: string } }) {
     const slug = params.slug
 
     const [data, setData] = useState<Brand>();
+    const [timelineData, setTimelineData] = useState<Timeline[]>();
     const [isLoading, setLoading] = useState(true)
     const router = useRouter();
 
@@ -32,8 +34,30 @@ export default function BrandDetail({ params }: { params: { slug: string } }) {
 
             })
             .then((data) => {
-                setLoading(false)
                 setData(data)
+
+                var filter = { 'brand._id': `${data._id}` };
+
+                // Get Timeline Data
+                const params = new URLSearchParams({ "filter": JSON.stringify(filter) });
+
+                fetch(`https://api.boykotaj.com/api/content/items/timeline?` + params, {
+                    method: "GET",
+                    headers: {
+                        "api-key": "API-f0c1821a1d447b015d1a0b1fe52f04f8ab2d600f",
+                    },
+
+                }).then((res) => {
+                    return res.json();
+                })
+                    .then((timelineData) => {
+                        setLoading(false);
+                        setTimelineData(timelineData);
+                        console.log(timelineData)
+
+                    })
+
+
             })
 
     }, [router, slug])
@@ -59,36 +83,29 @@ export default function BrandDetail({ params }: { params: { slug: string } }) {
                                         {`Açıklamalar`}
                                     </span>
                                 </h2>
-                                <BrandTimelineCard
-                                    time='21.07.2014'
-                                    title={`${data?.name}'dan yapılan açıklama`}
-                                    description={`Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.`}
-                                    /* price={"1.500.000"} */
-                                />
+                                {
 
-                                {/* <BrandTimelineCard
-                                    time='12:05'
-                                    title={'Created "Preline in React" task'}
-                                    description={'Find more detailed insctructions here.'}
-                                />
-
-                                <BrandTimelineCard
-                                    time='21:55'
-                                    title={'Release v5.2.0 quick bug fix 🐞'}
-                                    description={''}
-                                />
-
-                                <BrandTimelineCard
-                                    time='09:35'
-                                    title={'Marked "Install Charts" completed'}
-                                    description={'Finally! You can check it out here.'}
-                                />
-
-                                <BrandTimelineCard
-                                    time='15:10'
-                                    title={'Take a break ⛳️'}
-                                    description={'Just chill for now... 😉'}
-                                /> */}
+                                    timelineData != null && timelineData.length > 0 ? (
+                                        timelineData.map((item, index) => {
+                                            console.log(item)
+                                            return (
+                                                <BrandTimelineCard
+                                                    key={index}
+                                                    title={item.title}
+                                                    description={item.description}
+                                                    date={item.date}
+                                                    source={item.source}
+                                                />
+                                            )
+                                        })
+                                    ) : (
+                                        <h2 className="text-medium font-extrabold tracking-tight sm:text-large my-8">
+                                            <span className="">
+                                                {`Açıklama verisi girilmemiş.`}
+                                            </span>
+                                        </h2>
+                                    )
+                                }
                             </>
                         )
                 }
