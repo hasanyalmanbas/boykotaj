@@ -11,8 +11,8 @@ import { GoogleTagManager } from '@next/third-parties/google'
 const montserrat = Montserrat({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Boykotaj',
-  description: '',
+  title: `Boykotaj | Soykırımı Durdur!`,
+  description: `Ses Ver, Soykırımı Durdur! Boykot Güçlü Bir Silahtır.`,
   icons: {
     icon: '/favicon.png',
   },

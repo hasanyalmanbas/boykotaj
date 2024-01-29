@@ -20,7 +20,7 @@ export default function Navigation() {
             </NavbarContent>
             <NavbarBrand>
                 <Link href='/' color="foreground">
-                    <p className="font-bold text-inherit">BOYKOTAJ</p>
+                    <p className="font-bold text-xl leading-3 tracking-wider text-inherit">BOYKOTAJ</p>
                     {
                         /*
                          <Image priority={true} src={"/logo.png"} alt="Girift Studio Logo" width={166} height={75} className="block dark:hidden" />

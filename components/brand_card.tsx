@@ -13,6 +13,7 @@ const RichTextField = (data: string) => {
 }
 
 export default function BrandCard({ brand }: BrandCardProps) {
+    console.log(brand)
     return (
         <section className="pb-12">
             <div className="items-center pt-12 px-8 mx-auto max-w-7xl lg:px-16 md:px-12">
@@ -29,7 +30,7 @@ export default function BrandCard({ brand }: BrandCardProps) {
                             {brand.name}
                         </p>
                         {
-                            brand.description != null && (
+                            (brand.description != null && brand.description != "") && (
                                 <p className="sm:mt-8 mt-2.5 sm:px-8 md:px-16 lg:px-32  sm:leading-loose text-sm font-normal tracking-tighter">
                                     {RichTextField(brand.description)}
                                 </p>
@@ -41,11 +42,11 @@ export default function BrandCard({ brand }: BrandCardProps) {
             <div className="text-center space-x-4 mt-6">
                 <div className="bg-[#f31260] translate-y-1 text-[#fff] sm:text-lg text-medium font-bold py-2.5 px-6  rounded-full inline-flex items-center">
                     {
-                        brand.risk == "Boykot" ?
+                        true ?
                             (
                                 <>
                                     <FaExclamationTriangle size={24} />
-                                    &nbsp; &nbsp;<span> {brand.risk.toUpperCase()} </span>
+                                    &nbsp; &nbsp;<span> {"BOYKOT"} </span>
                                 </>
                             ) :
                             (
